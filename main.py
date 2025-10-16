@@ -21,7 +21,6 @@ GRADE_TO_POINT = {
 }
 
 def get_point(grade_input):
-    """Converts a grade string (e.g., "A-") to its corresponding point value."""
     return GRADE_TO_POINT.get(grade_input.upper(), 0.0)
 
 app = FastAPI()
@@ -30,6 +29,7 @@ origins = [
     "http://localhost",
     "http://localhost:5173", 
     "http://127.0.0.1:5500", 
+    "https://um-cgpa-recalculator.netlify.app/",
 ]
 app.add_middleware(
     CORSMiddleware,
@@ -41,7 +41,7 @@ app.add_middleware(
 
 @app.post("/calculate-cgpa/")
 async def calculate_cgpa(request: CalculationRequest):
-    time.sleep(0.5)
+    time.sleep(0.5) #loading effect
 
     total_point = request.current_cgpa * request.credits_taken
 
@@ -57,5 +57,4 @@ async def calculate_cgpa(request: CalculationRequest):
         
     final_cgpa = total_point / request.credits_taken if request.credits_taken > 0 else 0
     
-    # The backend returns the final result in a JSON object
     return {"new_cgpa": round(final_cgpa, 2)}
