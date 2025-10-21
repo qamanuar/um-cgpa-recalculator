@@ -30,10 +30,10 @@ const handleCalculation = async () => {
   error.value = null;
   isLoading.value = true;
   try {
-    const response = await axios.post(`${API_BASE_URL}`, cgpaData);
+    const response = await axios.post(`${API_BASE_URL}/calculate-cgpa`, cgpaData);
     resultCgpa.value = response.data.new_cgpa;
   } catch (err) {
-    error.value = "Failed to calculate. Please check the backend server.";
+    error.value = `Backend error : ${err.response.status} ${err.response.statusText}`;
   } finally {
     isLoading.value = false;
   }

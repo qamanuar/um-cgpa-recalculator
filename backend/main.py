@@ -39,7 +39,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/calculate-cgpa/")
+@app.post("/calculate-cgpa")
 async def calculate_cgpa(request: CalculationRequest):
     time.sleep(0.5) #loading effect
 
