@@ -89,10 +89,10 @@ const handleCalculation = async () => {
         </div>
         
         <div class="flex items-center space-x-4 mt-6">
-          <button type="button" @click="addSubject" class="w-full bg-slate-200 text-slate-700 font-semibold py-3 px-4 rounded-lg hover:bg-slate-300 transition">
+          <button type="button" @click="addSubject" class="w-full bg-slate-200 text-slate-700 cursor-pointer font-semibold py-3 px-4 rounded-lg hover:bg-slate-300 transition">
             + Add Subject
           </button>
-          <button type="submit" :disabled="isLoading" class="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 disabled:cursor-not-allowed transition">
+          <button type="submit" :disabled="isLoading" class="w-full bg-indigo-600 text-white cursor-pointer font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 disabled:cursor-not-allowed transition">
             <span v-if="isLoading">Calculating...</span>
             <span v-else>Calculate New CGPA</span>
           </button>
