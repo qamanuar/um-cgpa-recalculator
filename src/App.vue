@@ -29,7 +29,7 @@ const handleCalculation = async () => {
   error.value = null;
   isLoading.value = true;
   try {
-    const response = await axios.post('http://127.0.0.1:8000/calculate-cgpa/', cgpaData);
+    const response = await axios.post(`${API_BASE_URL}/calculate-cgpa`, cgpaData);
     resultCgpa.value = response.data.new_cgpa;
   } catch (err) {
     error.value = "Failed to calculate. Please check the backend server.";
