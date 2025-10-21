@@ -3,6 +3,7 @@ import { ref, reactive } from 'vue';
 import axios from 'axios';
 
 const GRADES = ["A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "F"];
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; 
 
 const cgpaData = reactive({
   current_cgpa: 0.00,
@@ -29,7 +30,7 @@ const handleCalculation = async () => {
   error.value = null;
   isLoading.value = true;
   try {
-    const response = await axios.post(`${API_BASE_URL}/calculate-cgpa`, cgpaData);
+    const response = await axios.post(`${API_BASE_URL}`, cgpaData);
     resultCgpa.value = response.data.new_cgpa;
   } catch (err) {
     error.value = "Failed to calculate. Please check the backend server.";
