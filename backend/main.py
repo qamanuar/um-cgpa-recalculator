@@ -25,15 +25,14 @@ def get_point(grade_input):
 
 app = FastAPI()
 
-origins = [
-    "http://localhost",
-    "http://localhost:5174", 
-    "http://127.0.0.1:5500", 
-    "https://um-cgpa-recalculator.netlify.app",
-]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins[
+        "http://localhost",
+        "http://localhost:5174", 
+        "http://127.0.0.1:5500", 
+        "https://um-cgpa-recalculator.netlify.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
